@@ -21,6 +21,8 @@ void some_timerfunc(void *arg)
   }
 }
 
+void ICACHE_FLASH_ATTR user_pre_init(){}
+
 void ICACHE_FLASH_ATTR user_init()
 {
   // init gpio sussytem

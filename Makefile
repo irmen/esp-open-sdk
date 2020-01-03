@@ -108,6 +108,8 @@ ifeq ($(STANDALONE),y)
 	@sed -e 's/\r//' sdk/ld/eagle.rom.addr.v6.ld >$(TOOLCHAIN)/xtensa-lx106-elf/sysroot/usr/lib/eagle.rom.addr.v6.ld
 	@echo "Installing port lib headers into toolchain sysroot"
 	@cp -Rf esp_stdcpp_port/cpp_routines.h $(TOOLCHAIN)/xtensa-lx106-elf/sysroot/usr/include/cpp_routines.h
+	@echo "Installing sdk-libgcc into compiler"
+	@cp sdk/lib/libgcc.a $(TOOLCHAIN)/lib/gcc/xtensa-lx106-elf/4.8.5/ 
 endif
 
 clean: clean-sdk
