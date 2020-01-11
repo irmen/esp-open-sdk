@@ -1,0 +1,30 @@
+--- eagle.app.v6.ld.orig	2020-01-11 00:28:35.695917028 +0000
++++ eagle.app.v6.ld	2020-01-11 00:26:38.503662083 +0000
+@@ -154,6 +154,18 @@
+   .irom0.text : ALIGN(4)
+   {
+     _irom0_text_start = ABSOLUTE(.);
++    
++    *libgcc.a:unwind-dw2.o(.literal .text .rodata .literal.* .text.* .rodata.*)
++    *libgcc.a:unwind-dw2-fde.o(.literal .text .rodata .literal.* .text.* .rodata.*)
++    
++    *libc.a:(.literal .text .literal.* .text.*)
++    *libcirom.a:(.literal .text .literal.* .text.*)
++    *libm.a:(.literal .text .literal.* .text.*)
++    *libgcc.a:_umoddi3.o(.literal .text)
++    *libgcc.a:_udivdi3.o(.literal .text)
++    *libstdc++.a:( .literal .text .literal.* .text.*)
++    *libstdc++irom.a:( .literal .text .literal.* .text.*)
++    *libnewlibport.a:( .literal .text .literal.* .text.*)
+ 
+     *libat.a:(.literal.* .text.*)
+     *libcrypto.a:(.literal.* .text.*)
+@@ -170,8 +182,6 @@
+ 
+     *libmbedtls.a:(.literal.* .text.*)
+ 
+-    *libm.a:(.literal .text .literal.* .text.*)
+-
+     *(.irom0.literal .irom.literal .irom.text.literal .irom0.text .irom.text)
+     _irom0_text_end = ABSOLUTE(.);
+   } >irom0_0_seg :irom0_0_phdr
