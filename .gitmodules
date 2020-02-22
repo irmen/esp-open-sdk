@@ -8,6 +8,7 @@
 [submodule "esptool"]
 	path = esptool
 	url = https://github.com/espressif/esptool
+	branch = master
 [submodule "esp-open-lwip"]
 	path = esp-open-lwip
 	url = https://github.com/pfalcon/esp-open-lwip
